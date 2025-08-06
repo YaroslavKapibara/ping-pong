@@ -76,7 +76,9 @@ while game:
         raketka2.reset()
         ball.rect.x += speedx 
         ball.rect.y += speedy
-        ball.reset()
+        if ball.rect.y <= 0 or ball.rect.y >= 450:
+            speedy *= -1
 
+        ball.reset()
     display.update()
     clock.tick(FPS)
