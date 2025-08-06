@@ -42,8 +42,8 @@ class PlayerSprite(GameSprite):
 
 
 
-raketka1 = PlayerSprite('raketka.png', 600, 350, 5, 80, 150)
-raketka2 = PlayerSprite('raketka.png', 30, 350, 5, 80, 150)
+raketka1 = PlayerSprite('raketka.png', 620, 350, 5, 80, 150)
+raketka2 = PlayerSprite('raketka.png', 0, 350, 5, 80, 150)
 ball = GameSprite('ball.png',350,250,5,50,50)
 speedx = 5
 speedy = 5
@@ -59,9 +59,9 @@ finish = False
 
 
 font.init()
-font1 = font.SysFont("Arial", 70)
-win = font1.render('YOU WIN!', True,(0,255,0))
-lose = font1.render("YOU LOSE!", True,(255,0,0))
+font1 = font.SysFont("Arial", 50)
+win1 = font1.render('PLAYER 1 IS WIN!', True,(0,0,0))
+win2 = font1.render("PLAYER 2 IS WIN!", True,(0,0,0))
 
 
 while game:
@@ -80,6 +80,13 @@ while game:
             speedy *= -1
         if sprite.collide_rect(raketka1, ball) or sprite.collide_rect(raketka2, ball):
             speedx *= -1
+        if ball.rect.x <= 0:
+            window.blit(win2,(90,250))
+            finish = True
+        if ball.rect.x >= 700:
+            window.blit(win1,(90,250))
+            finish = True
+
 
         ball.reset()
     display.update()
