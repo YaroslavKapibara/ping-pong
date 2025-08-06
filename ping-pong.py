@@ -78,6 +78,8 @@ while game:
         ball.rect.y += speedy
         if ball.rect.y <= 0 or ball.rect.y >= 450:
             speedy *= -1
+        if sprite.collide_rect(raketka1, ball) or sprite.collide_rect(raketka2, ball):
+            speedx *= -1
 
         ball.reset()
     display.update()
