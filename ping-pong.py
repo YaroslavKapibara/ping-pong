@@ -45,7 +45,8 @@ class PlayerSprite(GameSprite):
 raketka1 = PlayerSprite('raketka.png', 600, 350, 5, 80, 150)
 raketka2 = PlayerSprite('raketka.png', 30, 350, 5, 80, 150)
 ball = GameSprite('ball.png',350,250,5,50,50)
-
+speedx = 5
+speedy = 5
 
 
 
@@ -73,6 +74,8 @@ while game:
         raketka1.reset()
         raketka2.update1()
         raketka2.reset()
+        ball.rect.x += speedx 
+        ball.rect.y += speedy
         ball.reset()
 
     display.update()
