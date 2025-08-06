@@ -22,10 +22,17 @@ class GameSprite(sprite.Sprite):
 class PlayerSprite(GameSprite):
     def update(self):
         keys_pressed = key.get_pressed()
-        if keys_pressed[K_LEFT] and self.rect.x > 5:
-            self.rect.x -= self.speed
-        if keys_pressed[K_RIGHT] and self.rect.x < 595:
-            self.rect.x += self.speed
+        if keys_pressed[K_UP] and self.rect.y > 5:
+            self.rect.y -= self.speed
+        if keys_pressed[K_DOWN] and self.rect.y < 355:
+            self.rect.y += self.speed
+    def update1(self):
+        keys_pressed = key.get_pressed()
+        if keys_pressed[K_w] and self.rect.y > 5:
+            self.rect.y -= self.speed
+        if keys_pressed[K_s] and self.rect.y < 355:
+            self.rect.y += self.speed
+
 
             
 
@@ -35,7 +42,8 @@ class PlayerSprite(GameSprite):
 
 
 
-# kastryla = PlayerSprite('kastryla.png', 570, 420, 5, 80, 60)
+raketka1 = PlayerSprite('raketka.png', 600, 350, 5, 80, 150)
+raketka2 = PlayerSprite('raketka.png', 30, 350, 5, 80, 150)
 
 
 
@@ -61,6 +69,10 @@ while game:
             game = False
     if finish != True:
         window.blit(background, (0, 0))
+        raketka1.update()
+        raketka1.reset()
+        raketka2.update1()
+        raketka2.reset()
 
     display.update()
     clock.tick(FPS)
