@@ -44,7 +44,7 @@ class PlayerSprite(GameSprite):
 
 raketka1 = PlayerSprite('raketka.png', 600, 350, 5, 80, 150)
 raketka2 = PlayerSprite('raketka.png', 30, 350, 5, 80, 150)
-
+ball = GameSprite('ball.png',350,250,5,50,50)
 
 
 
@@ -73,6 +73,7 @@ while game:
         raketka1.reset()
         raketka2.update1()
         raketka2.reset()
+        ball.reset()
 
     display.update()
     clock.tick(FPS)
